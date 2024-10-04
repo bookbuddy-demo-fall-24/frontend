@@ -16,7 +16,7 @@ function Books() {
 
   return (
     <>
-      <BookList />
+      <BookList bookData={bookData} />
     </>
   );
 }
