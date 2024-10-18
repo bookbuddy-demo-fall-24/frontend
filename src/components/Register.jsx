@@ -26,7 +26,11 @@ function Register({ token, setToken }) {
       console.log(err);
     }
   };
-  console.log(newUser);
+
+  if (token) {
+    navigate("/me");
+  }
+
   return (
     <div className="register-container">
       <h2>Register Here</h2>

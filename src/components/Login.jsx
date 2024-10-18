@@ -28,7 +28,9 @@ function Login({ token, setToken }) {
     }
   };
 
-  console.log(loginData);
+  if (token) {
+    navigate("/me");
+  }
   return (
     <div className="register-container">
       <h2>Login</h2>

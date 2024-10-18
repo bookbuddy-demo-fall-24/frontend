@@ -36,7 +36,7 @@ function App() {
           path="/register"
           element={<Register token={token} setToken={setToken} />}
         />
-        <Route path="/books/:bookid" element={<SingleBook />} />
+        <Route path="/books/:bookid" element={<SingleBook token={token} />} />
         <Route path="*" element={<Books />} />
       </Routes>
     </>
