@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-function SingleBook() {
+function SingleBook({ token }) {
+  const navigate = useNavigate();
   const { bookid } = useParams();
   const [book, setBook] = useState(null);
 
@@ -24,6 +25,9 @@ function SingleBook() {
         alt={`Cover image for ${book?.title} by ${book?.author}`}
       />
       <p>{book?.description}</p>
+      {token && book?.available && <button>Check Out Book</button>}
+      {token && !book?.available && <p>Book Already Checked Out</p>}
+      {!token && <button onClick={() => navigate("/login")}>Login</button>}
     </div>
   );
 }
